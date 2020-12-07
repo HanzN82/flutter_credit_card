@@ -16,7 +16,7 @@ class CreditCardWidget extends StatefulWidget {
     this.height,
     this.width,
     this.textStyle,
-    this.cardBgColor = const Color(0xff1b447b),
+    this.cardBgColor = const Color.fromRGBO(255, 70, 65, 1.0),
     this.localizedText = const LocalizedText(),
   })  : assert(cardNumber != null),
         assert(showBackView != null),
@@ -207,7 +207,9 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                         padding: const EdgeInsets.all(5),
                         child: Text(
                           widget.cvvCode.isEmpty
-                              ? isAmex ? 'XXXX' : widget.localizedText.cvvHint
+                              ? isAmex
+                                  ? 'XXXX'
+                                  : widget.localizedText.cvvHint
                               : widget.cvvCode,
                           maxLines: 1,
                           style: widget.textStyle ?? defaultTextStyle,
